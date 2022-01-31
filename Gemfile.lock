@@ -1,4 +1,4 @@
-gGEM
+GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.5.0)
@@ -18,12 +18,13 @@ gGEM
 
 PLATFORMS
   arm64-darwin-20
+  arm64-darwin-21
 
 DEPENDENCIES
   rspec
 
 RUBY VERSION
-   ruby 3.0.0p0
+   ruby 3.1.0p0
 
 BUNDLED WITH
    2.3.6
