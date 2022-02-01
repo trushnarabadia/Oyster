@@ -5,6 +5,10 @@ describe Oystercard do
   it { is_expected.to respond_to(:top_up).with(1).argument }
   
   it { is_expected.to respond_to(:deduct) }
+
+  it { is_expected.to respond_to(:in_journey?) }
+
+  it { is_expected.to respond_to(:touch_in) }
   
   it "has a balance of 0 upon initialization" do
     expect(subject.balance).to eq 0
@@ -26,6 +30,13 @@ describe Oystercard do
     it "deducts the balance by value amount" do
       subject.top_up(25)
       expect{ subject.deduct(10) }.to change{ subject.balance }.by -10
+    end
+  end
+
+  describe "#in_journey?" do 
+
+    it "returns true if the card is in journey" do
+      expect(subject.in_journey?).to eq true
     end
   end
 end
