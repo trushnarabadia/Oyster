@@ -56,5 +56,12 @@ describe Oystercard do
     it "returns false if the card has been touched out" do
       expect(subject.touch_out).to eq false
     end
+
+    it "deducts minimum fare upon touching out" do
+      minimum = Oystercard::MINIMUM
+      subject.top_up(25)
+      subject.touch_in
+      expect { subject.touch_out }.to change { subject.balance }.by -minimum
+    end
   end
 end
