@@ -41,7 +41,13 @@ describe Oystercard do
   end
   describe "#touch_in" do
 
+    it "shouldn't let you touch in if balance is less than £1" do
+    #  minimum_balance = Oystercard::MINIMUM
+      expect{ subject.touch_in }.to raise_error "Not enough balance"
+    end
+
     it "returns true if the card has been touched in" do
+      subject.top_up(20)
       expect(subject.touch_in).to eq true
     end
   end
